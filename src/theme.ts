@@ -9,6 +9,15 @@ export const roboto = Inter({
 
 // Create a theme instance.
 const theme = extendTheme({
+  colorSchemes: {
+    light: {
+      palette: {
+        background: {
+          body: "var(--joy-palette-neutral-50)",
+        },
+      },
+    },
+  },
   fontFamily: {
     body: "Inter, var(--joy-fontFamily-fallback)",
   },
