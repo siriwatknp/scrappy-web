@@ -1,8 +1,8 @@
 import * as React from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import { CssVarsProvider } from "@mui/joy/styles";
+import CssBaseline from "@mui/joy/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "../src/createEmotionCache";
 

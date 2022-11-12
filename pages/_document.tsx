@@ -10,7 +10,12 @@ export default class MyDocument extends Document {
       <Html lang="en" className={roboto.className}>
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta name="theme-color" content="#fff" />
+          <meta
+            name="theme-color"
+            media="(prefers-color-scheme: dark)"
+            content="#000"
+          />
           <link rel="shortcut icon" href="/favicon.ico" />
           <meta name="emotion-insertion-point" content="" />
           {(this.props as any).emotionStyleTags}
@@ -66,7 +71,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   const initialProps = await Document.getInitialProps(ctx);
   // This is important. It prevents Emotion to render invalid HTML.
-  // See https://github.com/mui/material-ui/issues/26561#issuecomment-855286153
+  // See https://github.com/mui/joy-ui/issues/26561#issuecomment-855286153
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
