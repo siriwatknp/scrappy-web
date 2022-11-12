@@ -21,7 +21,7 @@
   ],
   "theme_color": "#FFFFFF",
   "background_color": "#F7F7F8",
-  "start_url": "/",
+  "start_url": "/lab/calculator/",
   "display": "standalone",
   "orientation": "portrait"
 }
