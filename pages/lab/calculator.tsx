@@ -30,11 +30,23 @@ export default function LabCalculator() {
           gap: 0.5,
           p: 0.5,
           "& .display": { gridArea: "display" },
-          "& .clear": { gridArea: "clear" },
-          "& .plus": { gridArea: "plus" },
-          "& .tare": { gridArea: "tare" },
-          "& .enter": { gridArea: "enter" },
-          "& .zero": { gridArea: "zero" },
+          "& .clear": {
+            gridArea: "clear",
+            bgcolor: "error.main",
+            color: "error.contrastText",
+          },
+          "& .plus": { gridArea: "plus", bgcolor: "divider" },
+          "& .tare": {
+            gridArea: "tare",
+            bgcolor: "primary.light",
+            color: "common.white",
+          },
+          "& .enter": {
+            gridArea: "enter",
+            bgcolor: "text.secondary",
+            color: "common.white",
+          },
+          "& .zero": { gridArea: "zero", bgcolor: "divider" },
           "& .dot": { gridArea: "dot" },
           "& .one": { gridArea: "one" },
           "& .two": { gridArea: "two" },
@@ -45,7 +57,7 @@ export default function LabCalculator() {
           "& .seven": { gridArea: "seven" },
           "& .eight": { gridArea: "eight" },
           "& .nine": { gridArea: "nine" },
-          "& > *": {
+          "& > button": {
             borderRadius: "2px",
             border: "1px solid",
             borderColor: "divider",
@@ -63,11 +75,14 @@ export default function LabCalculator() {
             justifyContent: "flex-end",
             py: 1,
             px: 2,
+            fontSize: 32,
           }}
         >
           {text}
         </Box>
-        <ButtonBase className="clear">ล้าง</ButtonBase>
+        <ButtonBase className="clear" onClick={() => setText("")}>
+          ล้าง
+        </ButtonBase>
         <ButtonBase className="plus" onClick={appendText("+")}>
           <Add />
         </ButtonBase>
