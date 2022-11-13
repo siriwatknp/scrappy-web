@@ -21,6 +21,34 @@ const theme = extendTheme({
   fontFamily: {
     body: "Inter, var(--joy-fontFamily-fallback)",
   },
+  components: {
+    JoyButton: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          "&:hover:not(:active)": {
+            "@media (hover: none)": {
+              backgroundColor:
+                theme.variants[ownerState.variant!]?.[ownerState.color!]
+                  ?.backgroundColor,
+            },
+          },
+        }),
+      },
+    },
+    JoyIconButton: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          "&:hover:not(:active)": {
+            "@media (hover: none)": {
+              backgroundColor:
+                theme.variants[ownerState.variant!]?.[ownerState.color!]
+                  ?.backgroundColor,
+            },
+          },
+        }),
+      },
+    },
+  },
 });
 
 export default theme;

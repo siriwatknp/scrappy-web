@@ -11,6 +11,20 @@ export default function LabCalculator() {
   const appendText = (letter: string) => () => {
     setText((lastText) => `${lastText}${letter}`);
   };
+  const unfreeze = React.useRef<NodeJS.Timeout>();
+  const freeze =
+    (time: number = 1000) =>
+    () => {
+      if (typeof document !== undefined) {
+        document.body.style.overflow = "hidden";
+        clearTimeout(unfreeze.current);
+        unfreeze.current = setTimeout(() => {
+          if (typeof document !== undefined) {
+            document.body.style.overflow = "initial";
+          }
+        }, time);
+      }
+    };
   return (
     <Container>
       <Sheet
@@ -71,6 +85,7 @@ export default function LabCalculator() {
           {text}
         </Box>
         <Button
+          onTouchStart={freeze()}
           variant="soft"
           color="danger"
           className="clear"
@@ -78,16 +93,22 @@ export default function LabCalculator() {
         >
           ล้าง
         </Button>
-        <Button variant="outlined" className="plus" onClick={appendText("+")}>
+        <Button
+          onTouchStart={freeze()}
+          variant="outlined"
+          className="plus"
+          onClick={appendText("+")}
+        >
           <Add />
         </Button>
-        <Button className="tare" variant="soft">
+        <Button onTouchStart={freeze()} className="tare" variant="soft">
           <Scale />
         </Button>
-        <Button color="neutral" className="enter">
+        <Button onTouchStart={freeze()} color="neutral" className="enter">
           ⏎
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="zero"
           variant="soft"
           color="neutral"
@@ -96,6 +117,7 @@ export default function LabCalculator() {
           0
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="dot"
           variant="soft"
           color="neutral"
@@ -104,6 +126,7 @@ export default function LabCalculator() {
           .
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="one"
           variant="soft"
           color="neutral"
@@ -112,6 +135,7 @@ export default function LabCalculator() {
           1
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="two"
           variant="soft"
           color="neutral"
@@ -120,6 +144,7 @@ export default function LabCalculator() {
           2
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="three"
           variant="soft"
           color="neutral"
@@ -128,6 +153,7 @@ export default function LabCalculator() {
           3
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="four"
           variant="soft"
           color="neutral"
@@ -136,6 +162,7 @@ export default function LabCalculator() {
           4
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="five"
           variant="soft"
           color="neutral"
@@ -144,6 +171,7 @@ export default function LabCalculator() {
           5
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="six"
           variant="soft"
           color="neutral"
@@ -152,6 +180,7 @@ export default function LabCalculator() {
           6
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="seven"
           variant="soft"
           color="neutral"
@@ -161,6 +190,7 @@ export default function LabCalculator() {
           7
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="eight"
           variant="soft"
           color="neutral"
@@ -169,6 +199,7 @@ export default function LabCalculator() {
           8
         </Button>
         <Button
+          onTouchStart={freeze()}
           className="nine"
           variant="soft"
           color="neutral"
