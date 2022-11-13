@@ -9,6 +9,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en" className={roboto.className}>
         <Head>
+          <meta name="robots" content="noindex" /> {/* TODO: enable later */}
           <meta name="theme-color" content="#fff" />
           <meta
             name="theme-color"
@@ -31,7 +32,6 @@ export default class MyDocument extends Document {
             sizes="167x167"
             href="/icons/touch-icon-ipad-retina.png"
           />
-
           <link
             rel="icon"
             type="image/png"

@@ -15,8 +15,6 @@ export default function Home() {
           name="description"
           content="The perfect companion for your recycling factory."
         />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
-        <meta name="robots" content="noindex" /> {/* TODO: enable later */}
       </Head>
     </React.Fragment>
   );
