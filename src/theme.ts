@@ -19,7 +19,7 @@ const theme = extendTheme({
     },
   },
   fontFamily: {
-    body: "Inter, var(--joy-fontFamily-fallback)",
+    body: "'Inter', var(--joy-fontFamily-fallback)",
   },
   components: {
     JoyButton: {
