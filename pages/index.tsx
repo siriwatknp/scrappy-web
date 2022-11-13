@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import AppHeader from "src/layout/AppHeader";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
@@ -34,19 +34,22 @@ export default function Home() {
           }}
         >
           <Box>
-            <Button
-              variant="outlined"
-              color="neutral"
-              sx={{
-                width: "100%",
-                bgcolor: "background.surface",
-                borderRadius: "50%",
-                aspectRatio: "1",
-                "--Icon-fontSize": "60px",
-              }}
-            >
-              <PostAdd />
-            </Button>
+            <Link passHref legacyBehavior href="/buy">
+              <Button
+                component="a"
+                variant="outlined"
+                color="neutral"
+                sx={{
+                  width: "100%",
+                  bgcolor: "background.surface",
+                  borderRadius: "50%",
+                  aspectRatio: "1",
+                  "--Icon-fontSize": "48px",
+                }}
+              >
+                <PostAdd />
+              </Button>
+            </Link>
             <Typography
               fontSize="xl2"
               fontWeight="xl"

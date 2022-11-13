@@ -1,5 +1,12 @@
 import { Inter } from "@next/font/google";
 import { extendTheme } from "@mui/joy/styles";
+import type {} from "@mui/joy/Button";
+
+declare module "@mui/joy/Button" {
+  interface ButtonPropsSizeOverrides {
+    xl: true;
+  }
+}
 
 export const roboto = Inter({
   weight: ["300", "400", "500", "700"],
@@ -25,6 +32,16 @@ const theme = extendTheme({
     JoyButton: {
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
+          fontWeight: 700,
+          ...(ownerState.size === "xl" && {
+            "--Icon-fontSize": "2rem",
+            "--Button-gap": "1rem",
+            minHeight: "var(--Button-minHeight, 4rem)",
+            fontSize: theme.vars.fontSize.xl,
+            paddingBlock: "0.5rem",
+            paddingInline: "1rem",
+            lineHeight: "1.4",
+          }),
           "&:hover:not(:active)": {
             "@media (hover: none)": {
               backgroundColor:
